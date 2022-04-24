@@ -10,6 +10,10 @@ export class ServerComponent implements OnInit {
   status = 'offline';
   constructor() { }
 
+  getServerStatus() {
+    return this.status;
+  }
+
   ngOnInit(): void {
   }
 
