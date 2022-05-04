@@ -3,10 +3,15 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {RecipesComponent} from "./components/recipes/recipes/recipes.component";
 import {ShoppingListComponent} from "./components/shopping/shopping-list/shopping-list.component";
+import {RecipeStartComponent} from "./components/recipes/recipe-start/recipe-start.component";
+import {RecipeDetailComponent} from "./components/recipes/recipe-detail/recipe-detail.component";
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full'},
-  { path: 'recipes', component: RecipesComponent },
+  { path: 'recipes', component: RecipesComponent, children: [
+      { path: '',component: RecipeStartComponent , pathMatch: 'full'},
+      { path: ':id', component: RecipeDetailComponent}
+    ] },
   { path: 'shopping-list', component: ShoppingListComponent }
 ]
 
